@@ -78,6 +78,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
     @Override
     public void onMapReady(GoogleMap googleMap) {
         // Map is ready to be used.
+        //this is a comment
         mMap = googleMap;
 
         // Set the long click listener as a way to exit the map.
