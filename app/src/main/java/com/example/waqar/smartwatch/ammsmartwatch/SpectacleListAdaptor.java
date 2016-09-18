@@ -1,9 +1,5 @@
 package com.example.waqar.smartwatch.ammsmartwatch;
 
-/**
- * Created by Waqar on 9/16/2016.
- */
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;

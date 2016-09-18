@@ -84,24 +84,25 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
         mMap = googleMap;
         Locations loc = null;
 
-        // Set the long click listener as a way to exit the map.
+        // Definido listener do clique longo como uma maneira de sair do mapa.
         mMap.setOnMapLongClickListener(this);
 
-        //get data from previous activity
+        //obtem dados da atividade anterior
         Bundle b = this.getIntent().getExtras();
         if (b != null)
             loc=b.getParcelable("MAP_DATA");
 
-        // Add a marker in the place where spectacle location is
+        // Adicionar um marker no lugar onde a localização espetáculo esta
         if (loc != null){
             LatLng location = new LatLng(loc.getLat(), loc.getLong());
             mMap.addMarker(new MarkerOptions().position(location).title("Spectacle is at "+loc.getName()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-            // Zoom in, animating the camera.
+            // Zoom in, animando a camera.
             mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 2000, null);
             Toast.makeText(getApplicationContext(), "Long click to exit the map and go to spectacle list", Toast.LENGTH_LONG).show();
         }
         //default marker, if spectracle location is not get bt the method, Some error occured.
+        //marcador padrão, se a localização do espetáculo não obtem o método bt, ocorreu algum erro.
         else {
             LatLng location = new LatLng(47.2, 30.2);
             mMap.addMarker(new MarkerOptions().position(location).title("Marker in Sydney"));
@@ -114,6 +115,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
     @Override
     public void onMapLongClick(LatLng latLng) {
         // Display the dismiss overlay with a button to exit this activity.
+        // Mostrar o descartar a sobreposição com botao para sair da atividade.
         mDismissOverlay.show();
     }
 }
