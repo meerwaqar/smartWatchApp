@@ -100,7 +100,6 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
             mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 2000, null);
             Toast.makeText(getApplicationContext(), "Long click to exit the map and go to spectacle list", Toast.LENGTH_LONG).show();
         }
-        //default marker, if spectracle location is not get bt the method, Some error occured.
         //marcador padrão, se a localização do espetáculo não obtem o método bt, ocorreu algum erro.
         else {
             LatLng location = new LatLng(47.2, 30.2);
@@ -113,7 +112,6 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
 
     @Override
     public void onMapLongClick(LatLng latLng) {
-        // Display the dismiss overlay with a button to exit this activity.
         // Mostrar o descartar a sobreposição com botao para sair da atividade.
         mDismissOverlay.show();
     }

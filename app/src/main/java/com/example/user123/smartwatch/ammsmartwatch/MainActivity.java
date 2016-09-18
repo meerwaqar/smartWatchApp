@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-//                // TODO gerados automaticamente metodo stub
+                // TODO gerados automaticamente metodo stub
                 Locations loc = locations[position];
 
                 Intent intent = new Intent();
