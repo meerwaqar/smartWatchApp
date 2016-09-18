@@ -80,14 +80,32 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
         // Map is ready to be used.
         //this is a comment
         mMap = googleMap;
+        Locations loc = null;
 
         // Set the long click listener as a way to exit the map.
         mMap.setOnMapLongClickListener(this);
 
-        // Add a marker in Sydney, Australia and move the camera.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //get data from previous activity
+        Bundle b = this.getIntent().getExtras();
+        if (b != null)
+            loc=b.getParcelable("MAP_DATA");
+
+        // Add a marker in the place where spectacle location is
+        if (loc != null){
+            LatLng location = new LatLng(loc.getLat(), loc.getLong());
+            mMap.addMarker(new MarkerOptions().position(location).title("Spectacle is at "+loc.getName()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+            // Zoom in, animating the camera.
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 2000, null);
+        }
+        //default marker, if spectracle location is not get bt the method, Some error occured.
+        else {
+            LatLng location = new LatLng(47.2, 30.2);
+            mMap.addMarker(new MarkerOptions().position(location).title("Marker in Sydney"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+
+        }
+
     }
 
     @Override

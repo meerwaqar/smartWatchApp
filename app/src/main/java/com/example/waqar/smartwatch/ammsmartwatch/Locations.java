@@ -1,9 +1,12 @@
 package com.example.waqar.smartwatch.ammsmartwatch;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Waqar on 9/18/2016.
  */
-public class Locations {
+public class Locations implements Parcelable {
 
     public double lat;
     public double log;
@@ -14,6 +17,24 @@ public class Locations {
         this.log = log;
         this.name = name;
     }
+
+    protected Locations(Parcel in) {
+        lat = in.readDouble();
+        log = in.readDouble();
+        name = in.readString();
+    }
+
+    public static final Creator<Locations> CREATOR = new Creator<Locations>() {
+        @Override
+        public Locations createFromParcel(Parcel in) {
+            return new Locations(in);
+        }
+
+        @Override
+        public Locations[] newArray(int size) {
+            return new Locations[size];
+        }
+    };
 
     public String getName(){
         return this.name;
@@ -38,4 +59,15 @@ public class Locations {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeDouble(lat);
+        dest.writeDouble(log);
+        dest.writeString(name);
+    }
 }
