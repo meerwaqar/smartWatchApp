@@ -11,8 +11,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.wearable.view.DismissOverlayView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class MapsActivity extends Activity implements OnMapReadyCallback,
         GoogleMap.OnMapLongClickListener {
@@ -97,6 +99,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
             // Zoom in, animating the camera.
             mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 2000, null);
+            Toast.makeText(getApplicationContext(), "Long click to exit the map and go to spectacle list", Toast.LENGTH_LONG).show();
         }
         //default marker, if spectracle location is not get bt the method, Some error occured.
         else {
