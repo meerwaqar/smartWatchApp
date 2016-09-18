@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
     ListView listView ;
 
-    //spectacles name data
+    //dados dos espetaculos
     String[] itemname ={
             "spectacle no 1",
             "spectacle no 2",
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 
     };
 
-    //locations data
+    //dados das locatizacoes
     Locations[] locations = {
             new Locations(57.9,2.9,"Aberdeen"),
             new Locations(13.45, 100.30,"Bangkok"),
@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
             new Locations(52.30,104.20,"Irkutsk")
     };
 
-    //pictures of spectacles
+    //imagens das localizacoes
     Integer[] imgid={
             R.mipmap.pic1,
             R.mipmap.pic2,
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
     };
 
 
-    //method to generate random dates
+    //metodo para gerar dados aleatorios
     private String[] generateDate(){
         String[] times = new String[10];
         for(int i=0;i<10;i++){
@@ -93,10 +93,8 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-//                // TODO Auto-generated method stub
+//                // TODO gerados automaticamente metodo stub
                 Locations loc = locations[position];
-//                String Slecteditem= itemname[+position];
-//                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent();
                 Bundle b = new Bundle();

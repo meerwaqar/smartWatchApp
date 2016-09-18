@@ -1,6 +1,5 @@
 package com.example.user123.smartwatch.ammsmartwatch;
 
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;

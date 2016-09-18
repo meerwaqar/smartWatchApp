@@ -3,9 +3,6 @@ package com.example.user123.smartwatch.ammsmartwatch;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Waqar on 9/18/2016.
- */
 public class Locations implements Parcelable {
 
     public double lat;

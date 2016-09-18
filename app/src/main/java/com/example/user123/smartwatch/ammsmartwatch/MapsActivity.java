@@ -34,25 +34,25 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
     public void onCreate(Bundle savedState) {
         super.onCreate(savedState);
 
-        // Set the layout. It only contains a MapFragment and a DismissOverlay.
+        // layout. so contem MapFragment e DismissOverlay.
         setContentView(R.layout.activity_maps);
 
-        // Retrieve the containers for the root of the layout and the map. Margins will need to be
-        // set on them to account for the system window insets.
+        // devolve os containers para a raiz do layout e do mapa.
+        // margens precisam de ser postos neles para contabilizar as insercoes da janela do sistema
         final FrameLayout topFrameLayout = (FrameLayout) findViewById(R.id.root_container);
         final FrameLayout mapFrameLayout = (FrameLayout) findViewById(R.id.map_container);
 
-        // Set the system view insets on the containers when they become available.
+        // Definir a visao do sistema insercoes nos recipientes quando eles se tornam disponiveis.
         topFrameLayout.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
             @Override
             public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
-                // Call through to super implementation and apply insets
+                // Chamada até a implementação super e aplicar inserções
                 insets = topFrameLayout.onApplyWindowInsets(insets);
 
                 FrameLayout.LayoutParams params =
                         (FrameLayout.LayoutParams) mapFrameLayout.getLayoutParams();
 
-                // Add Wearable insets to FrameLayout container holding map as margins
+                // Adicionar inserções Wearable para recipiente FrameLayout segurando mapa como margens
                 params.setMargins(
                         insets.getSystemWindowInsetLeft(),
                         insets.getSystemWindowInsetTop(),
@@ -64,12 +64,12 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
             }
         });
 
-        // Obtain the DismissOverlayView and display the introductory help text.
+        // Obtém o DismissOverlayView  e mostra o texto de ajuda introdutória.
         mDismissOverlay = (DismissOverlayView) findViewById(R.id.dismiss_overlay);
         mDismissOverlay.setIntroText(R.string.intro_text);
         mDismissOverlay.showIntroIfNecessary();
 
-        // Obtain the MapFragment and set the async listener to be notified when the map is ready.
+        // Obtem o MapFragment e poe async listener para ser notificado quando o mapa está pronto.
         MapFragment mapFragment =
                 (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -78,29 +78,30 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // Map is ready to be used.
+        // O mapa esta pronto para ser usado
         //this is a comment
         mMap = googleMap;
         Locations loc = null;
 
-        // Set the long click listener as a way to exit the map.
+        // Definido listener do clique longo como uma maneira de sair do mapa.
         mMap.setOnMapLongClickListener(this);
 
-        //get data from previous activity
+        //obtem dados da atividade anterior
         Bundle b = this.getIntent().getExtras();
         if (b != null)
             loc=b.getParcelable("MAP_DATA");
 
-        // Add a marker in the place where spectacle location is
+        // Adicionar um marker no lugar onde a localização espetáculo esta
         if (loc != null){
             LatLng location = new LatLng(loc.getLat(), loc.getLong());
             mMap.addMarker(new MarkerOptions().position(location).title("Spectacle is at "+loc.getName()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-            // Zoom in, animating the camera.
+            // Zoom in, animando a camera.
             mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 2000, null);
             Toast.makeText(getApplicationContext(), "Long click to exit the map and go to spectacle list", Toast.LENGTH_LONG).show();
         }
         //default marker, if spectracle location is not get bt the method, Some error occured.
+        //marcador padrão, se a localização do espetáculo não obtem o método bt, ocorreu algum erro.
         else {
             LatLng location = new LatLng(47.2, 30.2);
             mMap.addMarker(new MarkerOptions().position(location).title("Marker in Sydney"));
@@ -113,6 +114,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
     @Override
     public void onMapLongClick(LatLng latLng) {
         // Display the dismiss overlay with a button to exit this activity.
+        // Mostrar o descartar a sobreposição com botao para sair da atividade.
         mDismissOverlay.show();
     }
 }
