@@ -1,4 +1,4 @@
-package com.example.waqar.smartwatch.ammsmartwatch;
+package com.example.user123.smartwatch.ammsmartwatch;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.wearable.view.DismissOverlayView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import android.widget.Toast;

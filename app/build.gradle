@@ -6,7 +6,7 @@ android {
     buildToolsVersion "24.0.2"
 
     defaultConfig {
-        applicationId "com.example.waqar.smartwatch.ammsmartwatch"
+        applicationId "com.example.user123.smartwatch.ammsmartwatch"
         minSdkVersion 20
         targetSdkVersion 23
         versionCode 1

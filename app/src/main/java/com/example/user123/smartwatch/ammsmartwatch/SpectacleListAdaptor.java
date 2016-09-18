@@ -1,8 +1,5 @@
-package com.example.waqar.smartwatch.ammsmartwatch;
+package com.example.user123.smartwatch.ammsmartwatch;
 
-/**
- * Created by Waqar on 9/16/2016.
- */
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -11,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.sql.Timestamp;
 
 public class SpectacleListAdaptor extends ArrayAdapter<String> {
 

@@ -1,4 +1,4 @@
-package com.example.waqar.smartwatch.ammsmartwatch;
+package com.example.user123.smartwatch.ammsmartwatch;
 
 import android.os.Parcel;
 import android.os.Parcelable;
